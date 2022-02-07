@@ -8,17 +8,17 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Data
-@Builder
-@NoArgsConstructor
 @AllArgsConstructor
-public class Move implements Serializable {
+@NoArgsConstructor
+@Builder
+public class Photo implements Serializable {
 
-    private static final long serialVersionUID = -8695122882414040121L;
+    private static final long serialVersionUID = -8695332882423541121L;
 
-    private String name;
+    private String front_default;
 
     @Override
     public String toString() {
-        return name.toUpperCase();
+        return front_default;
     }
 }

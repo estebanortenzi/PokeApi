@@ -1,5 +1,6 @@
-package com.pokeApiChallenge.demo.models.entities;
+package com.pokeApiChallenge.demo.models.objects;
 
+import com.pokeApiChallenge.demo.models.entities.Ability;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -8,17 +9,15 @@ import lombok.NoArgsConstructor;
 import java.io.Serializable;
 
 @Data
-@Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Move implements Serializable {
+@Builder
+public class ObjectAbility implements Serializable{
 
-    private static final long serialVersionUID = -8695122882414040121L;
-
-    private String name;
+    private Ability ability;
 
     @Override
     public String toString() {
-        return name.toUpperCase();
+        return ability.toString();
     }
 }
