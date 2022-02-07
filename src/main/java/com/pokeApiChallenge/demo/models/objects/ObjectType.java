@@ -14,6 +14,8 @@ import java.io.Serializable;
 @Builder
 public class ObjectType implements Serializable {
 
+    private static final long serialVersionUID = -8594122018914668335L;
+
     private Integer slot;
     private Type type;
 

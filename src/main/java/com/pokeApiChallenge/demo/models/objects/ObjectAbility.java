@@ -14,6 +14,8 @@ import java.io.Serializable;
 @Builder
 public class ObjectAbility implements Serializable{
 
+    private static final long serialVersionUID = -817366105774662121L;
+
     private Ability ability;
 
     @Override

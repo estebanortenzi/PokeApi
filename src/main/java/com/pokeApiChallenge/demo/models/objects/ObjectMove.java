@@ -15,10 +15,10 @@ import java.io.Serializable;
 @Builder
 public class ObjectMove implements Serializable {
 
+    private static final long serialVersionUID = -889515204831485872L;
+
     private Move move;
 
     @Override
-    public String toString() {
-        return move.toString();
-    }
+    public String toString() {return move.toString();}
 }

@@ -12,6 +12,8 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Type {
 
+    private static final long serialVersionUID = -877410074436690122L;
+
     private String name;
 
     @Override
