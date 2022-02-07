@@ -20,12 +20,12 @@ public class PokemonController {
     private PokemonService pokemonService;
 
     @GetMapping(value = "/pokemonList")
-    public ResponseEntity<List<PokemonDTO>> getPokemonsList(){
+    public ResponseEntity<List<PokemonDTO>> getPokemonsList() {
         return new ResponseEntity<>(pokemonService.getAllPokemons(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{name}")
-    public ResponseEntity<PokemonDTO> getPokemon(@PathVariable String name){
+    public ResponseEntity<PokemonDTO> getPokemon(@PathVariable String name) {
         return new ResponseEntity<>(pokemonService.findPokemonByName(name), HttpStatus.OK);
     }
 
