@@ -43,13 +43,7 @@ public class PokemonServiceImp implements PokemonService {
                 Pokemon pokemon = gson.fromJson(json, Pokemon.class);
 
                 if (pokemon != null)
-                    pokemonsDtoList.add(PokemonDTO.builder()
-                            .name(pokemon.getName())
-                            .sprites(pokemon.getSprites())
-                            .types(pokemon.getTypes())
-                            .weight(pokemon.getWeight())
-                            .abilities(pokemon.getAbilities())
-                            .build());
+                    pokemonsDtoList.add(createPokemonDto(pokemon));
 
             } catch (IOException | InterruptedException e) {
                 e.printStackTrace();
@@ -81,18 +75,35 @@ public class PokemonServiceImp implements PokemonService {
             Gson gson = builder.create();
 
             pokemon = gson.fromJson(json, Pokemon.class);
-            pokemonDTO = PokemonDTO.builder()
-                    .name(pokemon.getName())
-                    .sprites(pokemon.getSprites())
-                    .types(pokemon.getTypes())
-                    .weight(pokemon.getWeight())
-                    .abilities(pokemon.getAbilities())
-                    .build();
+
+            pokemonDTO = createPokemonDtoComplete(pokemon);
 
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
 
         return pokemonDTO;
+    }
+
+    private PokemonDTO createPokemonDto(Pokemon pokemon){
+        return PokemonDTO.builder()
+                .name(pokemon.getName())
+                .sprites(pokemon.getSprites())
+                .types(pokemon.getTypes())
+                .weight(pokemon.getWeight())
+                .abilities(pokemon.getAbilities())
+                .build();
+    }
+
+    private PokemonDTO createPokemonDtoComplete(Pokemon pokemon){
+        return PokemonDTO.builder()
+                .name(pokemon.getName())
+                .sprites(pokemon.getSprites())
+                .types(pokemon.getTypes())
+                .weight(pokemon.getWeight())
+                .abilities(pokemon.getAbilities())
+                .description(pokemon.getDescription())
+                .moves(pokemon.getMoves())
+                .build();
     }
 }
